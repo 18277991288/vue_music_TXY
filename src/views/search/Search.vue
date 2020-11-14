@@ -20,7 +20,7 @@
             <div class="songtitle">{{item.name}}</div>
             <div class="songdetail">{{item.artists[0].name}} - {{item.album.name}}</div>
           </div>
-          <span class="more">more</span>
+          <span class="more"><img src="../../assets/img/more.png" alt=""></span>
         </li>
       </ul>
     </Scroll>

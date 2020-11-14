@@ -16,16 +16,15 @@
       <img src="~assets/img/sort.png" alt="" />
     </div>
 
-    <van-popup
-      v-model="show"
-      position="bottom"
-      class="sortPopup"
-      round
-    >
-      <div> 歌单：{{name}}</div>
-      <div><img src="~assets/img/sort1.png" alt=""><span>选择歌曲排序</span></div>
-      <div><img src="~assets/img/sort2.png" alt=""><span>清空下载文件</span></div>
-      <div><img src="~assets/img/sort3.png" alt=""><span>举报</span></div>
+    <van-popup v-model="show" position="bottom" class="sortPopup" round>
+      <div class="sortname">歌单：{{ name }}</div>
+      <div>
+        <img src="~assets/img/sort1.png" alt="" /><span>选择歌曲排序</span>
+      </div>
+      <div>
+        <img src="~assets/img/sort2.png" alt="" /><span>清空下载文件</span>
+      </div>
+      <div><img src="~assets/img/sort3.png" alt="" /><span>举报</span></div>
     </van-popup>
   </div>
 </template>
@@ -124,24 +123,25 @@ export default {
   padding-top: 4px;
   flex: 1;
 }
-
+.sortname {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .sortPopup div {
   position: relative;
   text-align: left;
   padding-left: 20px;
 }
 .sortPopup div img {
-  
   width: 24px;
   height: 24px;
 }
 .sortPopup div span {
-  position:absolute;
+  position: absolute;
   top: -6px;
 
   padding-left: 10px;
   font-size: 16px;
-  
-  
 }
 </style>
