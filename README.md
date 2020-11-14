@@ -1,4 +1,4 @@
-# wyymusic
+# musicmint
 
 ## Project setup
 ```
