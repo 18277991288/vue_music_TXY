@@ -67,7 +67,7 @@ export default {
     //github
     gitClick(){
       // window.open("https://github.com/rt442979559/cloudMusic")
-      window.open("https://github.com/18277991288?tab=stars")
+      window.open("https://github.com/18277991288/wyymusic/tree/main")
 
     }
 
