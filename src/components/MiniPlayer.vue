@@ -4,7 +4,7 @@
     <div id="player">
       <van-popup v-model="playerShow"  id="playerpopup" >
         <div class="playernavbar" >
-          <span class="playerback" @click.stop="playerback">back</span>
+          <span class="playerback" @click.stop="playerback"><img src="~assets/img/back.png" alt=""></span>
           <span class="playersongtitle">
             <span>{{currentPlay.name}}</span>
             <span>{{currentPlay.singer}}</span>
@@ -329,6 +329,12 @@ export default {
   width: 100vw;
   height:100vh;
   background-image: radial-gradient(43% 116% at top center, #535353 5% , #464646 18%, rgb(27, 26, 26)70%);
+}
+.van-share-sheet__options {
+  
+}
+.van-share-sheet__option {
+  
 }
 .playernavbar{
   display: flex;

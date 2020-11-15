@@ -51,8 +51,9 @@ export default {
       this.currentIndex = index
     },
     navvideomvClick(index) {
-      this.$router.push('/videomv');
-      this.currentIndex = index
+      this.$message('未开发~');
+      // this.$router.push('/videomv');
+      // this.currentIndex = index
     },
     searchClick(){
       this.$router.push('/search')

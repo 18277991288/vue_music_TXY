@@ -25,6 +25,8 @@
         <img src="~assets/img/sort2.png" alt="" /><span>清空下载文件</span>
       </div>
       <div><img src="~assets/img/sort3.png" alt="" /><span>举报</span></div>
+      <div><img src="~assets/img/sort3.png" alt="" /><span></span></div>
+
     </van-popup>
   </div>
 </template>
