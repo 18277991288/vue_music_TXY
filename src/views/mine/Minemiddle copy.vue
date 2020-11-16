@@ -1,10 +1,12 @@
 <template>
   <div class="minemiddle">
-    <ul class="flex1" @click="mineClick">
+    <ul class="flex1">
       <li><img src="../../assets/img/minemiddle/1.png" alt="" /><p>本地音乐</p></li>
       <li><img src="../../assets/img/minemiddle/2.png" alt="" /><p>云盘</p></li>
       <li><img src="../../assets/img/minemiddle/3.png" alt="" /><p>已购</p></li>
       <li><img src="../../assets/img/minemiddle/4.png" alt="" /><p>最近播放</p></li>
+     </ul> 
+      <ul class="flex2">
       <li><img src="../../assets/img/minemiddle/5.png" alt="" /><p>我的好友</p></li>
       <li><img src="../../assets/img/minemiddle/6.png" alt="" /><p>收藏和赞</p></li>
       <li><img src="../../assets/img/minemiddle/7.png" alt="" /><p>我的电台</p></li>
@@ -20,12 +22,6 @@ export default {
   data() {
     return {};
   },
-  methods: {
-    mineClick(){
-      this.$message('未开发~');
-    }
-
-  },
 };
 </script>
 
@@ -38,26 +34,31 @@ export default {
   border-radius: 15px;
 }
 .flex1 {
-  width: 100%;
-  height: 200px;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-content: space-evenly;
-  /* background-color: #0ff; */
+  justify-content: space-between;
+  
 }
-.flex1 li {
-  width: 70px;
-  height: 70px;
+.flex2{
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-between;
 }
-
-.flex1 li p {
-  width: 70px;
+.minemiddle ul li {
+  float: left;
+  width: 80px;
+  height: 80px;
+  padding: 10px 0;
+}
+.minemiddle ul li img {
+  width: 40px;
+  height: 40px;
+  margin-top: 15px;
+  margin-left: 20px;
+}
+.minemiddle ul li p {
+  font-size: 14px;
+  margin-top: 3px;
+  margin-left: -2px;
   text-align: center;
-
 }
 
 

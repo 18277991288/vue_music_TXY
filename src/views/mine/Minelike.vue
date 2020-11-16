@@ -1,10 +1,12 @@
 <template>
-  <div class="minelike">
-    <div class="minelike-icon"><img src="~assets/img/minemiddle/9.png" alt=""></div>
+  <div class="minelike" @click="minelikeClick()">
+    <div class="minelike-icon">
+      <img src="~assets/img/minemiddle/9.png" alt="" />
+    </div>
     <div class="msg">
       <p>我喜欢的音乐</p>
       <span>已下载9首</span>
-      </div>
+    </div>
     <div class="xindong">心动模式</div>
   </div>
 </template>
@@ -15,6 +17,11 @@ export default {
   components: {},
   data() {
     return {};
+  },
+  methods: {
+    minelikeClick() {
+      this.$message("未开发~");
+    },
   },
 };
 </script>
@@ -43,11 +50,10 @@ export default {
 }
 .msg span {
   font-size: 10px;
-  
 }
 .xindong {
   float: right;
-  margin: 25px 20px;;
+  margin: 25px 20px;
   height: 20px;
   width: 80px;
   font-size: 10px;

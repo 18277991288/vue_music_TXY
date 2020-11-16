@@ -43,7 +43,7 @@ export default {
 }
 
 .content {
-  height: calc(100vh - 90px);
+  height: calc(100vh - 45px);
   overflow: hidden;
   position: absolute;
   top: 45px;
