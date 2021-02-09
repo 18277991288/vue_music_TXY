@@ -9,11 +9,11 @@
         <div class="avatar"></div>
         <div class="mygit" @click="gitClick">
           <img src="~assets/img/github.png" alt="" />
-          <span>github(点击进入主页)</span>
+          <span>Github(点击进入主页)</span>
         </div>
-        <div class="mygit" >
-          <img src="~assets/img/wechat.png" alt="" />
-          <span>Yu_2609813922</span>
+        <div class="mygit" @click="giteeClick">
+          <img src="~assets/img/gitee.jpg" alt="" />
+          <span>Gitee(点击进入主页)</span>
         </div>
         <div class="mygit" >
           <img src="~assets/img/phone.png" alt="" />
@@ -54,8 +54,10 @@ export default {
     },
     //github
     gitClick() {
-      // window.open("https://github.com/rt442979559/cloudMusic")
-      window.open("https://github.com/18277991288/wyymusic/tree/main");
+      window.open("https://github.com/18277991288/wyymusic");
+    },
+    giteeClick() {
+      window.open("https://gitee.com/TXY961278/vue_music_-txy");
     },
   },
   data() {
