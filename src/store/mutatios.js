@@ -39,7 +39,7 @@ export default {
     play(state) {
         if(state.songList.length > 0){
             state.playing = true;
-            console.log('play');
+            
         }
         else return
     },
@@ -60,7 +60,7 @@ export default {
     },
 
     // navbarindex
-    changeNavIndex(state,index){
-        state.navCurrentIndex = index;
+    changeTabIndex(state,index){
+        state.tabCurrentIndex = index;
     }
 }

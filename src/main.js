@@ -11,6 +11,9 @@ import 'babel-polyfill';
 import FastClick from 'fastclick';
 import storage from 'good-storage'
 
+// import { Popup , ShareSheet , Circle , Slider, Tab, Tabs } from 'vant';
+
+// Vue.use(Popup , ShareSheet , Circle , Slider , Tab , Tabs);
 
 Vue.config.debug = true;
 // ---------------------------------------------------------------
@@ -21,7 +24,7 @@ Vue.use(Lazyload, {
   lazyComponent: true,
 });
 Vue.use(VueLazyLoad,{
-  loading:require('./assets/img/cat.jpg')
+  loading:require('./assets/img/loading.jpg')
 })
 
 Vue.use(Toast);

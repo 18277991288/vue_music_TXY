@@ -1,169 +1,122 @@
 <template>
   <!-- nav上层 -->
-  <div class="navbar">
-    <div class="navbarTop">
-      <div class="navmeuns"  @click="showPopup" >
-        <img src="~assets/img/navbar/menus.png" alt="">
-      </div>
-    <van-popup v-model="show" position="left" closeable class="menusPopup">
-      <div class="avatar"></div>
-      <div class="mygit" @click="gitClick">
-        <img src="~assets/img/github.png" alt="">
-        <span>github</span>
-      </div>
-    </van-popup>
-
-      <div class="navicon">
-        <div class="navicon-warpper">
-          <div class="nav-mine" @click="navmineClick(0)" :class="currentIndex==0?'':'inactive'">
-            <img src="~assets/img/navbar/navmusicAct.svg" alt />
-          </div>
-          <div class="nav-home" @click="navhomeClick(1)" :class="currentIndex==1?'':'inactive'">
-            <img src="~assets/img/navbar/3.svg" alt />
-          </div>
-          <div class="nav-videomv" @click="navvideomvClick(2)" :class="currentIndex==2?'':'inactive'">
-            <img src="~assets/img/navbar/navplay.svg" alt />
-          </div>
+  
+  <div>
+    <nav-bar class="home-nav">
+      <div slot="left">
+        <img src="~assets/img/navbar/menu.png" alt="" @click="showPopup" />
+          <van-popup v-model="show" position="left" closeable class="menusPopup">
+        <div class="avatar"></div>
+        <div class="mygit" @click="gitClick">
+          <img src="~assets/img/github.png" alt="" />
+          <span>github(点击进入主页)</span>
         </div>
+        <div class="mygit" >
+          <img src="~assets/img/wechat.png" alt="" />
+          <span>Yu_2609813922</span>
+        </div>
+        <div class="mygit" >
+          <img src="~assets/img/phone.png" alt="" />
+          <span>19522968814</span>
+        </div>
+      </van-popup>
       </div>
-      <div class="navsearch" @click="searchClick">
-        <img src="~assets/img/navbar/search.png" alt="">
+      <div slot="center" class="home-center"><h3>music</h3></div>
+      <div slot="right" class="home-right">
+        <img src="~assets/img/navbar/search.png" alt="" @click="searchClick" />
       </div>
-    </div>
+    </nav-bar>
   </div>
 </template>
 
 <script>
+import NavBar from "components/common/NavBar";
 import { Popup } from "vant";
+
+
 export default {
   name: "NavbarTop",
   components: {
     [Popup.name]: Popup,
+    NavBar,
   },
   methods: {
-    navmineClick(index) {
-      this.$router.push('/mine');
-      this.currentIndex = index
-    },
-    navhomeClick(index) {
-      this.$router.push('/index');
-      this.$store.commit('changeNavIndex',0)
-      this.currentIndex = index
-    },
-    navvideomvClick(index) {
-      this.$message('未开发~');
-      // this.$router.push('/videomv');
-      // this.currentIndex = index
-    },
-    searchClick(){
-      this.$router.push('/search')
+    searchClick() {
+      this.$router.push("/search");
     },
     //侧边栏
-    menusClick(){
-      this.$store.commit('openMenus')
+    menusClick() {
+      this.$store.commit("openMenus");
     },
     showPopup() {
       this.show = true;
+      
     },
     //github
-    gitClick(){
+    gitClick() {
       // window.open("https://github.com/rt442979559/cloudMusic")
-      window.open("https://github.com/18277991288/wyymusic/tree/main")
-
-    }
-
+      window.open("https://github.com/18277991288/wyymusic/tree/main");
+    },
   },
   data() {
     return {
-      currentIndex:1,
-      show: false
-    }
+      show: false,
+    };
   },
 };
 </script>
 
 <style scoped>
-.menusPopup{
+.menusPopup {
   z-index: 1001;
   background-color: white;
 }
 /* navbar上层 */
-.navbarTop {
-  height: 45px;
-  display: flex;
-  text-align: center;
-  line-height: 45px;
+.home-nav {
   position: fixed;
-  top: 0;
   left: 0;
   right: 0;
-  background-color: #e5473b;
-  width: 100%;
-  z-index: 888;
+  top: 0;
+  z-index: 999;
+  background: #fff;
 }
-.navmeuns {
-  flex: 1;
-  background-color: #e5473b;
+.home-nav img {
+  height: 28px;
+  width: 28px;
 }
-.navicon {
-  flex: 6;
-  background-color: #e5473b;
+.home-right img {
+  height: 25px;
+  width: 25px;
+  margin-left: 40px;
 }
-.navsearch {
-  flex: 1;
-  background-color: #e5473b;
+.home-center {
+  color: rgb(100, 208, 156);
+  font-size: 17px;
 }
-
-/* 中间icon区 */
-.navicon-warpper {
-  width: 50%;
-  background-color: #e5473b;
-  transform: translate(50%);
-  display: flex;
-  justify-content: space-between;
-}
-img {
-  width: 7.222vw;
-  vertical-align: middle;
-}
-.nav-mine {
-  background-color: #e5473b;
-}
-.nav-home {
-  background-color: #e5473b;
-}
-.nav-videomv {
-  background-color: #e5473b;
-}
-.inactive{
-  opacity: .4;
-}
-
 
 /* 弹出层 */
-.menusPopup{
+.menusPopup {
   height: 100vh;
   width: 80vw;
 }
-.avatar{
+.avatar {
   width: 100%;
   height: 30vh;
-  background: url(~assets/img/yu.jpg)  no-repeat;
-  background-size: 100% ;
+  background: url(~assets/img/yu.jpg) no-repeat;
+  background-size: 100%;
   background-position: 50%;
 }
-.avatar img{
-  height: 100% ;
+.avatar img {
+  height: 100%;
   width: 100%;
 }
-.mygit{
+.mygit {
   height: 10vh;
   line-height: 10vh;
-  opacity: .8;
+  opacity: 0.8;
 }
-.mygit img{
-  margin:0 5vw 0 -2.5vh;
+.mygit img {
+  margin: 0 6vw -10px -2.5vh;
+  margin-right: 10px;
 }
-
-
 </style>

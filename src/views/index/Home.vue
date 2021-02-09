@@ -6,76 +6,10 @@
       <Recommend></Recommend>
       <Personalized ref="personalized"></Personalized>
       <PersonalizedNewSong></PersonalizedNewSong>
+      <PersonalizedExclusive></PersonalizedExclusive>
+      <PersonalizedMv></PersonalizedMv>
     </van-pull-refresh>
-      <ul>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-      </ul>
+    <div class="kong"></div>
     </Scroll>
   </div>
 </template>
@@ -86,16 +20,20 @@ import NavbarBtm from "components/NavbarBtm";
 import Recommend from "components/Recommend";
 import Personalized from "components/Personalized";
 import PersonalizedNewSong from "components/PersonalizedNewSong";
+import PersonalizedExclusive from "components/PersonalizedExclusive";
+import PersonalizedMv from "components/PersonalizedMv";
 import Scroll from "components/common/Scroll";
-import { PullRefresh } from "vant";
+import { PullRefresh } from "vant";  
 export default {
-  name: "Home",
+  name: "Home", 
   components: {
     Banners,
     NavbarBtm,
     Recommend,
     Personalized,
     PersonalizedNewSong,
+    PersonalizedExclusive,
+    PersonalizedMv,
     Scroll,
     [PullRefresh.name]: PullRefresh
   },
@@ -149,5 +87,8 @@ export default {
   left: 0;
   right: 0;
   overflow: hidden;
+}
+.kong {
+  height: 100px;
 }
 </style>

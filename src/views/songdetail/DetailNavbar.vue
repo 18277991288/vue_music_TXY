@@ -10,24 +10,12 @@
     </div>
 
     <div class="search" @click="searchClick">
-      <img src="~assets/img/navbar/search.png" alt="" />
+      <img src="~assets/img/navbar/search1.png" alt="" />
     </div>
     <div class="sort" @click="showPopup">
       <img src="~assets/img/sort.png" alt="" />
     </div>
 
-    <van-popup v-model="show" position="bottom" class="sortPopup" round>
-      <div class="sortname">歌单：{{ name }}</div>
-      <div>
-        <img src="~assets/img/sort1.png" alt="" /><span>选择歌曲排序</span>
-      </div>
-      <div>
-        <img src="~assets/img/sort2.png" alt="" /><span>清空下载文件</span>
-      </div>
-      <div><img src="~assets/img/sort3.png" alt="" /><span>举报</span></div>
-      <div><img src="~assets/img/sort3.png" alt="" /><span></span></div>
-
-    </van-popup>
   </div>
 </template>
 
@@ -48,6 +36,7 @@ export default {
     },
     showPopup() {
       this.show = true;
+      this.$emit('event1', this.show)
     },
   },
   data() {
@@ -63,12 +52,13 @@ export default {
   position: relative;
   top: 0;
   z-index: 900;
-  background-color: rgba(229, 71, 59);
+  background-color: #64d09c;
   height: 50px;
   line-height: 50px;
   width: 100%;
   display: flex;
   text-align: center;
+  color: white;
   opacity: 0.9;
 }
 .back {
@@ -102,7 +92,7 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-top: 5px;
-  opacity: 0.5;
+  
 }
 .title .box3 {
   flex: 1;

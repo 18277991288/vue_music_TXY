@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 const Home = () => import('views/index/Home')
 const Mine = () => import('views/mine/Mine')
 const Videomv = () => import('views/videomv/Videomv')
+const Plaza = () => import('views/plaza/Plaza')
 const Search = () => import('views/search/Search')
 const Index = () => import('views/index/Index')
 
@@ -13,7 +14,7 @@ const Rank = () => import('views/index/Rank')
 const SongCate = () => import('views/index/SongCate')
 const PlaylistDetail = () => import('views/songdetail/PlaylistDetail')
 
-const TopPlayList = () => import('views/topplaylist/TopPlayList')
+
 
 
 const routes = [
@@ -26,7 +27,7 @@ const routes = [
         component: Mine,
         //用meta属性来控制路由的显示和隐藏
         meta: {
-            showNav: true
+            showNav: false
         }
     },
     {
@@ -68,6 +69,13 @@ const routes = [
         }
     },
     {
+        path: '/plaza',
+        component: Plaza,
+        meta: {
+            showNav: false
+        }
+    },
+    {
         path: '/playlistdetail/:id',
         component: PlaylistDetail,
     },
@@ -77,10 +85,7 @@ const routes = [
         component:Search
     },
     //推荐歌单 => 更多
-    {
-        path:'/topplaylist',
-        component:TopPlayList
-    }
+    
 ]
 
 const router = new VueRouter({

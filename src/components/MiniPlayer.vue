@@ -13,18 +13,30 @@
             <i class="iconfont icon-share"></i>
           </span>
         </div>
-        <van-share-sheet class="sharetanchu"
+        <!-- 分享弹出层 -->
+        <van-popup
           v-model="showShare"
-          title="立即分享给好友"
-          :options="options"
-          @select="onSelect"
-          />
+          round
+          position="bottom"
+          class="sharepopup"
+        >
+          <div class="title">立即分享给好友</div>
+          <div class="icon" @click="iconClick">
+            <span><img src="~assets/img/player/weixin.png" alt=""><p>微信</p></span>
+            <span><img src="~assets/img/player/weibo.png" alt=""><p>微博</p></span>
+            <span><img src="~assets/img/player/QQ.png" alt=""><p>QQ</p></span>
+            <span><img src="~assets/img/player/link.png" alt=""><p>复制链接</p></span>
+            <span><img src="~assets/img/player/qrcode.png" alt=""><p>二维码</p></span>
+          </div>
+          <div class="back"></div>
+        </van-popup>
+
           <!-- 中间的图片区 -->
         <div class="middle"  @click.stop="showLyric">
           <div v-show="!lyricIsShow" id="lyric">
             <!-- 歌词部分 -->
             <Scroll :probeType="2"  class="content" ref="lyricList" >
-                <p v-for="(item,index) in currentLyric" ref="lyricitem" class="lyricitem"
+                <p v-for="(item,index) in currentLyric" ref="lyricitem" class="lyricitem" :key="item"
                 :class="{'current':activeIndex === index}">
                   {{item.content}}
                 </p>
@@ -105,9 +117,9 @@
     </div>
     <!-- 底部弹出的播放列表 -->
     <div class="popup">
-      <van-popup v-model="show" position="bottom" 
+      <van-popup v-model="show" position="bottom" round
         :style="{ height: '50%' }" close-on-popstate safe-area-inset-bottom>
-          <div class="popuptitle">list</div>
+          <div class="popuptitle">当前播放</div>
         <div v-for="(item,index) in songList" :key="index" class="popupList" @click="listItemClick(index)"
         :class="{active:currentPlay.id === item.id}">
           <div >
@@ -193,6 +205,12 @@ export default {
     //弹出层
     showPopup(){
       this.show = true;
+    },
+     showShareClick() {
+      this.showShare = true;
+    },
+    iconClick() {
+      this.$message('未开发')
     },
     //上一首
     async lastSongClick(){
@@ -285,13 +303,6 @@ export default {
       playerShow:false,
       //分享显示
       showShare: false,
-      options: [
-        { name: '微信', icon: 'wechat' },
-        { name: '微博', icon: 'weibo' },
-        { name: '复制链接', icon: 'link' },
-        { name: '分享海报', icon: 'poster' },
-        { name: '二维码', icon: 'qrcode' },
-      ],
       //歌词显示
       lyricIsShow:true,
       isPlaying:false,
@@ -521,15 +532,16 @@ export default {
 /* 小播放器 */
 #miniplayer {
   position: absolute;
-  bottom: 0px;
+  bottom: 45px;
   z-index: 1000;
   height: 45px;
   width: 100%;
-  background-color: white;
+  background-color: #f6f6f6;
   display: flex;
   text-align: center;
   align-items: center;
   border-top: 1px solid rgba(240, 239, 239,.8);
+  border-bottom: 1px solid rgba(240, 239, 239,.8);
   overflow: hidden;
 }
 .songimg {
@@ -614,4 +626,45 @@ export default {
   animation-play-state:paused;
 }
 
+.sharepopup {
+  height: 35%;
+  width: 90%;
+  margin-left: 5%;
+   background-color: #080808;
+}
+
+.title {
+  height: 50px;
+  color: black;
+  background-color: #fff;
+  text-align: center;
+  line-height: 50px;
+  border-bottom: 5px solid #fafafa;
+}
+.icon {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 120px;
+  color: black;
+  background-color: #fff;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.icon span {
+  
+  height: 60px;
+  width: 65px;
+}
+.icon span img {
+  margin-left: 5px;
+  
+}
+.icon span p {
+  text-align: center;
+}
+.back {
+  height: 100px;
+  background-color: #080808;
+}
 </style>

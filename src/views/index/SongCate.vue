@@ -1,6 +1,6 @@
 <template>
   <div id="SongCate" class="wrapper">
-      <van-tabs @click="tabClick"  animated sticky >
+      <van-tabs @click="tabClick"  animated sticky color="#64d09c">
         <van-tab title="全部"></van-tab>
         <van-tab title="华语"></van-tab>
         <van-tab title="欧美"></van-tab>

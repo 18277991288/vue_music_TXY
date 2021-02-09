@@ -19,7 +19,7 @@ export default {
         },
         {
           title: "每日推荐",
-          image: require("assets/img/recommend/music-radio.png")
+          image: require("assets/img/recommend/day.png")
         },
         {
           title: "歌单",
@@ -44,11 +44,11 @@ export default {
           break;
         case 2:
           this.$router.push('/songcate')
-          this.$store.commit('changeNavIndex',1)
+          this.$store.commit('changeTabIndex',1)
           break;
         case 3:
           this.$router.push('/rank')
-          this.$store.commit('changeNavIndex',2)
+          this.$store.commit('changeTabIndex',2)
           break;
       }
     }
@@ -71,7 +71,7 @@ export default {
 .recommend-item{
   width: 13.889vw;
   height: 13.889vw;
-  background-color: #ec493d;
+  background-color: #64d09c;
   margin-top: 2.778vw;
   border-radius: 50%;
   opacity: .95;

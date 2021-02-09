@@ -1,5 +1,5 @@
 export default {
-    navCurrentIndex:0,
+    tabCurrentIndex:0,
     isLoad: false, //加载组件
     currentPlay: {  // 当前播放歌曲
         'id': 0,

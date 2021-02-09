@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <NavbarTop id="navbartop"  v-if="$route.meta.showNav"></NavbarTop>
+    <Tabbar id="tabbar" ></Tabbar>
     <MiniPlayer id="miniplayer"></MiniPlayer>
     <keep-alive exclude="PlaylistDetail,Search" >
       <router-view ></router-view>
@@ -12,6 +13,7 @@
 <script>
 import Home from './views/index/Home'
 import NavbarTop from 'components/NavbarTop'
+import Tabbar from 'components/Tabbar'
 import MiniPlayer from 'components/MiniPlayer'
 import { Loading } from 'vant';
 export default {
@@ -19,6 +21,7 @@ export default {
   components:{
     Home,
     NavbarTop,
+    Tabbar,
     MiniPlayer,
     [Loading.name]:Loading
   },
@@ -33,6 +36,7 @@ export default {
   position: relative;
   top:0;
 }
+
 #loading{
   position: absolute;
   top: 45%;

@@ -36,6 +36,14 @@ export const getSongLyric = id => $http.get(`lyric?id=${id}`)
 // * 推荐新音乐
 export const getPersonalizedNewSong = () => $http.get('/personalized/newsong')
 
+// MV
+export const getMVStation = () => $http.get('/personalized/mv')
+// export const getMVStation = () => $http.get('/mv/first')
+// export const getMV = () => $http.get('/mv/first')
+
+
+// 独家放送
+export const getExclusive = () => $http.get('/personalized/privatecontent/list')
 
 
 

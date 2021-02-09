@@ -3,13 +3,13 @@
     <div class="navbarBtm">
       <div class="navbarBtm-wrapper" >
         <div @click="homeClick(0)" >
-          <span :class="navCurrentIndex==0?'active':'inactive'">推荐</span>
+          <span :class="tabCurrentIndex==0?'active':'inactive'">推荐</span>
         </div>
         <div @click="rankClick(1)">
-          <span  :class="navCurrentIndex==1?'active':'inactive'">歌单</span>
+          <span  :class="tabCurrentIndex==1?'active':'inactive'">歌单</span>
         </div>
         <div @click="raiosetClick(2)">
-          <span  :class="navCurrentIndex==2?'active':'inactive'">排行</span>
+          <span  :class="tabCurrentIndex==2?'active':'inactive'">排行</span>
         </div>
       </div>
     </div>
@@ -22,15 +22,15 @@ export default {
   methods: {
     homeClick(index){
       this.$router.push('/home')
-      this.$store.commit('changeNavIndex',index)
+      this.$store.commit('changeTabIndex',index)
     },
     rankClick(index){
       this.$router.push('/songcate')
-      this.$store.commit('changeNavIndex',index)
+      this.$store.commit('changeTabIndex',index)
     },
     raiosetClick(index){
       this.$router.push('/rank')
-      this.$store.commit('changeNavIndex',index)
+      this.$store.commit('changeTabIndex',index)
     }
   },
   data() {
@@ -39,7 +39,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['navCurrentIndex'])
+    ...mapState(['tabCurrentIndex'])
   },
 };
 </script>
@@ -52,12 +52,12 @@ export default {
   z-index: 887;
   height: 45px;
   width: 100%;
-  background-color: #e5473b;
+  background-color: #64d09c;
   margin-bottom: 45px;
 }
 .navbarBtm-wrapper {
   width: 100%;
-  background-color: #e5473b;
+  background-color: #64d09c;
   height: 100%;
   display: flex;
   vertical-align: middle;

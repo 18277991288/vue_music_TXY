@@ -1,9 +1,17 @@
 <template>
   <div id="playlistdetail" class="wrapper">
-    <van-popup v-model="show" round position="bottom" :style="{ height: '40%' }" >内容</van-popup>
+    <van-popup v-model="show" round position="bottom" :style="{ height: '40%' }" >
+      <div class="morePopup">
+      <div><img src="~assets/img/Popup/like.png" alt="">收藏歌单</div>
+      <div><img src="~assets/img/Popup/download.png" alt="">下载</div>
+      <div><img src="~assets/img/Popup/comment.png" alt="">评论（4999）</div>
+      <div><img src="~assets/img/Popup/share.png" alt="">分享</div>
+      <div><img src="~assets/img/Popup/shut.png" alt="">屏蔽歌曲</div>
+      </div>
+    </van-popup>
 
 
-    <DetailNavbar :description="playlist.description" :changeContext="changeContext" :name="playlist.name"></DetailNavbar>
+    <DetailNavbar :description="playlist.description" :changeContext="changeContext" :name="playlist.name" @event1="change($event)"></DetailNavbar>
     <Scroll :probeType="3" class="content" ref="scroll" :pull-up-load="true" @scroll="contentScroll">
       <AuthorMsg
         :coverimg="playlist.coverImgUrl"
@@ -143,6 +151,9 @@ export default {
     showPopup(){
       this.show = true;
     },
+    change(data) {
+            this.show = data;
+      },
     // 页面滚动触发navbar事件
     contentScroll(position){
       // console.log(position);
@@ -181,13 +192,13 @@ export default {
   justify-content: space-between;
 }
 .collect {
-  background-color: #ee4d41;
+  background-color: #64d09c;
   background-image: linear-gradient(
     to right,
     rgba(226, 125, 125, 0),
-    rgb(226, 77, 77)
+    #64d09c
   );
-  color: rgb(240, 239, 239);
+  color: white;
   font-size: 3.889vw;
   padding: 0 2.778vw;
 }
@@ -253,4 +264,25 @@ export default {
   color: rgb(209, 5, 49);
 }
 
+//morePopup弹出层
+.morePopup {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  margin-left: 25px;
+}
+
+.morePopup div {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.morePopup img {
+  
+  padding-right: 10px;
+
+}
 </style>
