@@ -13,9 +13,9 @@
           <div class="middle">
             <div
               class="MvList"
-              v-for="item in MvList"
+              v-for="(item,index) in MvList"
               :key="item.id"
-              @click="showPopup"
+              @click="showPopup(index)"
             >
               <div class="photo">
                 <div class="mid">
@@ -48,7 +48,7 @@
           height="250"
           autoplay="autoplay"
           ref="MiniPlayer"
-          src="../../assets/img/video/OCAwMDg5NmEgMDE4MiAmIA==_mv_5917476_c385359ffd508d0f335466bebdd0e44f.mp4"
+          :src="video_url"
         ></video>
         <div v-show="this.isPaused" class="paused">
           <img src="~assets/img/play1.png" alt="" />
@@ -92,9 +92,7 @@ export default {
       MvList: [],
       show: false,
       isPaused: false,
-      video_url:""
-        // "http://vodkgeyttp8.vod.126.net/cloudmusic/89f2/core/1707/96b8b3f110131facb70cecc1874f823c.mp4?wsSecret=01ba7e3a4b63b3d6b208ca24121606f2&wsTime=1612596665"
-        // "http://vodkgeyttp8.vod.126.net/cloudmusic/OCAwMDg5NmEgMDE4MiAmIA==/mv/5917476/c385359ffd508d0f335466bebdd0e44f.mp4?wsSecret=fdb0a107741f8244472ce7b26b836e35&wsTime=1612594796",
+      video_url:"",  
     };
   },
   async created() {
@@ -128,8 +126,86 @@ export default {
         this.$refs.scroll.scroll.refresh();
       });
     },
-    showPopup() {
-      this.show = true;
+    showPopup(i) {
+      switch (i) {
+          case 0:
+            this.video_url = "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4";
+            this.show = true;
+          break;
+          case 1:
+            this.video_url = "http://vjs.zencdn.net/v/oceans.mp4";
+            this.show = true;
+          break;
+          case 2:
+            this.video_url = "https://media.w3.org/2010/05/sintel/trailer.mp4";
+            this.show = true;
+          break;
+          case 3:
+            this.video_url = "https://v-cdn.zjol.com.cn/280443.mp4";
+            this.show = true;
+          break;
+          case 4:
+            this.video_url = "https://v-cdn.zjol.com.cn/276982.mp4";
+            this.show = true;
+          break;
+          case 5:
+            this.video_url = "https://v-cdn.zjol.com.cn/276984.mp4";
+            this.show = true;
+          break;
+          case 6:
+            this.video_url = "https://v-cdn.zjol.com.cn/276985.mp4";
+            this.show = true;
+          break;
+          case 7:
+            this.video_url = "https://v-cdn.zjol.com.cn/276986.mp4";
+            this.show = true;
+          break;
+          case 8:
+            this.video_url = "https://v-cdn.zjol.com.cn/276987.mp4";
+            this.show = true;
+          break;
+          case 9:
+            this.video_url = "https://v-cdn.zjol.com.cn/276988.mp4";
+            this.show = true;
+          break;
+          case 10:
+            this.video_url = "https://v-cdn.zjol.com.cn/276989.mp4";
+            this.show = true;
+          break;
+          case 11:
+            this.video_url = "https://v-cdn.zjol.com.cn/276990.mp4";
+            this.show = true;
+          break;
+          case 12:
+            this.video_url = "https://v-cdn.zjol.com.cn/276991.mp4";
+            this.show = true;
+          break;
+          case 13:
+            this.video_url = "https://v-cdn.zjol.com.cn/276992.mp4";
+            this.show = true;
+          break;
+          case 14:
+            this.video_url = "https://v-cdn.zjol.com.cn/276993.mp4";
+            this.show = true;
+          break;
+          case 15:
+            this.video_url = "https://v-cdn.zjol.com.cn/276994.mp4";
+            this.show = true;
+          break;
+          case 16:
+            this.video_url = "https://v-cdn.zjol.com.cn/276995.mp4";
+            this.show = true;
+          break;
+          case 17:
+            this.video_url = "https://v-cdn.zjol.com.cn/276996.mp4";
+            this.show = true;
+          break;
+          case 18:
+            this.video_url = "https://v-cdn.zjol.com.cn/276997.mp4";
+            this.show = true;
+          break;
+        }
+      
     },
     OpenedPopup() {
       this.$refs.MiniPlayer.play();
