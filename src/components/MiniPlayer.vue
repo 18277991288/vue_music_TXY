@@ -36,9 +36,9 @@
           <div v-show="!lyricIsShow" id="lyric">
             <!-- 歌词部分 -->
             <Scroll :probeType="2"  class="content" ref="lyricList" >
-                <p v-for="(item,index) in currentLyric" ref="lyricitem" class="lyricitem" :key="item"
+                <p v-for="(value,index) in currentLyric" ref="lyricitem" class="lyricitem" :key="value.index"
                 :class="{'current':activeIndex === index}">
-                  {{item.content}}
+                  {{value.content}}
                 </p>
             </Scroll>
           </div>

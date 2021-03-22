@@ -8,7 +8,7 @@
         success-text="刷新成功"
       >
     
-        	<div class="list" v-if="addShow">
+      <div class="list" v-if="addShow">
       <div class="photo"><img src="~assets/img/plaza/yu.jpg" alt="" /></div>
       <div class="name">陶星宇</div>
       <div class="text">
@@ -27,12 +27,14 @@
         <div>
           <img src="~assets/img/plaza/say.png" alt="" /><span>评论</span>
         </div>
-      </div>
+      </div> 
     </div>
+
+
     <div class="list">
       <div class="photo"><img src="~assets/img/plaza/jie1.png" alt="" /></div>
       <div class="name">Libero-xxxx</div>
-      <div class="text">
+      <div class="text" >
         收拾房间看着这一面杰哥的海报墙<br />真的好感慨<br />不知不觉粉了杰哥十几年<br />从五年级到如今大学快毕业<br />一《这就是爱》
       </div>
       <div class="pic">
@@ -207,8 +209,11 @@ export default {
 
     },
     submit() {
-      if (this.message == "" || this.fileList.length == 0) {
-        this.$message('您还没有输入内容或者没有上传图片');
+      if (this.message == "") {
+        this.$message('您还没有输入内容');
+      }else if (this.fileList.length == 0) {
+        this.$message('您还没有上传图片');
+
       }else {
       this.$message('发表成功！');
       this.addShow = true
@@ -308,19 +313,23 @@ export default {
 }
 .list {
   width: 95%;
-  height: 300px;
-
   margin: 0 auto;
-  position: relative;
   border-bottom: 2px solid #f2f2f2;
+  zoom:1;
 }
+.list:after{
+     display:block;
+     content:'';
+     clear:both;
+     height:0;
+     overflow:hidden;
+}
+
 .photo {
   width: 50px;
   height: 50px;
   background-color: #fff;
-  position: absolute;
-  top: 10px;
-  left: 0px;
+  margin-top: 10px;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -331,30 +340,28 @@ export default {
 .name {
   width: 200px;
   height: 20px;
-  position: absolute;
-  top: 15px;
-  left: 60px;
+  margin-top: -45px;
+  margin-left: 60px;
   color: rgb(73, 73, 173);
   font-size: 18px;
 }
 .text {
   width: 290px;
-  height: 200px;
-  position: absolute;
-  top: 40px;
-  left: 60px;
+  margin-top: 25px;
+  margin-left: 60px;
   font-size: 18px;
   overflow: hidden;
 }
 .pic {
   background-color: #fff;
   width: 260px;
-  position: absolute;
-  top: 160px;
-  left: 55px;
+  margin-top: 10px;
+  margin-left: 55px;
   display: flex;
   flex-flow: wrap;
+  
 }
+
 .pic img {
   width: 80px;
   height: 80px;
@@ -365,9 +372,9 @@ export default {
   width: 28px;
   height: 32px;
   background-color: #f7f7f7;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
+  float: right;
+  margin-bottom: 10px;
+  margin-right: 10px;
   border-radius: 5px;
   overflow: hidden;
 }
@@ -379,9 +386,9 @@ export default {
 .like {
   width: 170px;
   height: 40px;
-  position: absolute;
-  bottom: 10px;
-  right: 45px;
+  float: right;
+  margin-top: -3px;
+  margin-right: 5px;
   background-color: #4d5153;
   border-radius: 10px;
   display: flex;
