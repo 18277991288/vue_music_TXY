@@ -81,9 +81,11 @@ export default {
   },
   mounted() {
     this.initScroll();
+    
   },
   activated() {
     this.initScroll();
+    console.log(1);
   },
   data() {
     return {
