@@ -85,7 +85,6 @@ export default {
   },
   activated() {
     this.initScroll();
-    console.log(1);
   },
   data() {
     return {
