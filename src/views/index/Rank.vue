@@ -38,6 +38,7 @@ export default {
   },
   created() {
     this.getRankList();
+
   },
   activated() {
     this.initScroll();
@@ -48,7 +49,6 @@ export default {
         data: { list: listdetail }
       } = await getTopListDetail();
       this.toplistdetail = listdetail.slice(0, 12);
-      // console.log(this.toplistdetail);
     },
     rankItemClick(item) {
       this.$router.push("/playlistdetail/" + item.id);

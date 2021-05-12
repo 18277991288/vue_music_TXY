@@ -13,11 +13,36 @@
           </div>
           <div class="logoName">账号登录</div>
           <!-- 允许输入数字，调起全键盘 -->
-          <van-field class="field" v-model="username" type="number" label="账号:" :border="false"/>
+          <van-field
+            class="field"
+            v-model="username"
+            type="number"
+            label="账号:"
+            :border="false"
+          />
           <!-- 输入密码 -->
-          <van-field class="field" v-model="password" type="password" label="密码:" />
-          <van-button round type="info" size="large" class="button" @click="LoginClick">登录</van-button>
-          <van-button round type="default" size="large" class="button" @click="LiClick">注册</van-button>
+          <van-field
+            class="field"
+            v-model="password"
+            type="password"
+            label="密码:"
+          />
+          <van-button
+            round
+            type="info"
+            size="large"
+            class="button"
+            @click="LoginClick"
+            >登录</van-button
+          >
+          <van-button
+            round
+            type="default"
+            size="large"
+            class="button"
+            @click="LiClick"
+            >注册</van-button
+          >
 
           <div class="cs">测试1：账号：123456 密码：123456</div>
         </div>
@@ -122,7 +147,7 @@ import { PullRefresh } from "vant";
 import { Uploader } from "vant";
 import { Popup } from "vant";
 import { Field } from "vant";
-import { Button } from 'vant';
+import { Button } from "vant";
 
 export default {
   name: "Home",
@@ -133,7 +158,6 @@ export default {
     [Popup.name]: Popup,
     [Field.name]: Field,
     [Button.name]: Button,
-
   },
   mounted() {
     this.initScroll();
@@ -147,10 +171,11 @@ export default {
       showMine: false,
       showLogin: true,
       show: false,
-      username: '',
-      password: '',
+      username: "",
+      password: "",
     };
   },
+
   methods: {
     onRefresh() {
       setTimeout(() => {
@@ -179,18 +204,17 @@ export default {
       this.$message("未开发~");
     },
     LoginClick() {
-      if (this.username=="") {
+      if (this.username == "") {
         this.$message("请输入账号");
-      }else if (this.password=="") {
+      } else if (this.password == "") {
         this.$message("请输入密码");
-      }else if (this.username=="123456" || this.password=="123456") {
+      } else if (this.username == "123456" || this.password == "123456") {
         this.$message("登录成功");
         this.showLogin = false;
-      }else {
+      } else {
         this.$message("账号或密码不正确");
       }
-
-    }
+    },
   },
 };
 </script>

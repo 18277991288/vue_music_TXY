@@ -87,6 +87,7 @@ export default {
   left: 0;
   right: 0;
   overflow: hidden;
+  
 }
 .kong {
   height: 100px;
